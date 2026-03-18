@@ -76,6 +76,13 @@ function median(arr: number[]): number {
   return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 }
 
+function stddev(arr: number[]): number {
+  if (arr.length < 2) return 0;
+  const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
+  const sqDiffs = arr.map((v) => (v - mean) ** 2);
+  return Math.round(Math.sqrt(sqDiffs.reduce((a, b) => a + b, 0) / arr.length) * 10) / 10;
+}
+
 function computeHeight(rows: PlayerRow[]) {
   // Add sub_position
   const withPos = rows.map((r) => ({
@@ -90,6 +97,7 @@ function computeHeight(rows: PlayerRow[]) {
       position: pos,
       avg_height: avg(heights),
       median_height: Math.round(median(heights) * 10) / 10,
+      std_dev: stddev(heights),
       count: heights.length,
       min: heights.length ? Math.min(...heights) : 0,
       max: heights.length ? Math.max(...heights) : 0,

@@ -1,22 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCallback } from "react";
 import ModalPlayerCard from "@/components/profile/ModalPlayerCard";
 import FootAnalysisChart from "@/components/profile/FootAnalysisChart";
 import CountryRepresentationChart from "@/components/profile/CountryRepresentationChart";
 import MedianStatsCard from "@/components/profile/MedianStatsCard";
 import SplitComparisonChart from "@/components/profile/SplitComparisonChart";
-
-interface ProfileData {
-  totalPlayers: number;
-  modalPlayer: any;
-  footAnalysis: any;
-  countryRepresentation: any[];
-  medianStats: any;
-  splits: any;
-  big5Leagues: string[];
-  leftHandPopulationPct: number;
-}
+import FilterBar from "@/components/FilterBar";
+import ActiveFilters from "@/components/ActiveFilters";
+import { useProfileData } from "@/hooks/useProfileData";
+import type { FilterState } from "@/lib/types";
 
 function SkeletonSection() {
   return (
@@ -30,17 +23,52 @@ function SkeletonSection() {
   );
 }
 
+function LoadingOverlay() {
+  return (
+    <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] z-10 flex items-center justify-center">
+      <div className="flex items-center gap-2 bg-white/90 px-4 py-2 rounded-lg shadow-sm">
+        <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+        <span className="text-sm text-gray-600 font-medium">Updating...</span>
+      </div>
+    </div>
+  );
+}
+
 export default function ProfileClient() {
-  const [data, setData] = useState<ProfileData | null>(null);
+  const {
+    data,
+    unfilteredData,
+    isLoading,
+    filters,
+    setFilter,
+    clearFilters,
+    filterOptions,
+    hasActiveFilters,
+  } = useProfileData();
 
-  useEffect(() => {
-    fetch("/data/profile_meta.json")
-      .then((res) => res.json())
-      .then((json: ProfileData) => setData(json))
-      .catch((err) => console.error("Failed to load profile data:", err));
-  }, []);
+  const handleRemoveFilter = useCallback(
+    (key: keyof FilterState, value: string | number | boolean) => {
+      if (key === "is_starter") {
+        setFilter("is_starter", null);
+        return;
+      }
+      if (key === "fifa_version") {
+        setFilter(
+          "fifa_version",
+          filters.fifa_version.filter((v) => v !== value)
+        );
+        return;
+      }
+      const arrKey = key as "nationality_name" | "position_group" | "league_name" | "rating_tier" | "football_year_type";
+      setFilter(
+        arrKey,
+        filters[arrKey].filter((v) => v !== value)
+      );
+    },
+    [setFilter, filters]
+  );
 
-  // Loading skeleton
+  // Loading skeleton — no data at all yet
   if (!data) {
     return (
       <main className="min-h-screen">
@@ -110,9 +138,30 @@ export default function ProfileClient() {
         </div>
       </header>
 
+      {/* Sticky Filter Bar */}
+      <FilterBar
+        filters={filters}
+        filterOptions={filterOptions}
+        onFilterChange={setFilter}
+        onClearAll={clearFilters}
+        hasActiveFilters={hasActiveFilters}
+      />
+
+      {/* Active Filters */}
+      {hasActiveFilters && unfilteredData && (
+        <ActiveFilters
+          filters={filters}
+          totalFiltered={data.totalPlayers}
+          totalAll={unfilteredData.totalPlayers}
+          onRemove={handleRemoveFilter}
+          onClearAll={clearFilters}
+        />
+      )}
+
       {/* Modal Player Card */}
       <div className="bg-gray-50">
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 relative">
+          {isLoading && <LoadingOverlay />}
           <div className="max-w-6xl mx-auto">
             <div className="mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-navy">The Modal Player</h2>
@@ -127,18 +176,26 @@ export default function ProfileClient() {
       </div>
 
       {/* Foot Analysis */}
-      <FootAnalysisChart data={data.footAnalysis} />
+      <div className="relative">
+        {isLoading && <LoadingOverlay />}
+        <FootAnalysisChart data={data.footAnalysis} />
+      </div>
 
       {/* Country Representation */}
-      <div className="bg-gray-50">
+      <div className="bg-gray-50 relative">
+        {isLoading && <LoadingOverlay />}
         <CountryRepresentationChart data={data.countryRepresentation} />
       </div>
 
       {/* Median Stats */}
-      <MedianStatsCard data={data.medianStats} />
+      <div className="relative">
+        {isLoading && <LoadingOverlay />}
+        <MedianStatsCard data={data.medianStats} />
+      </div>
 
       {/* Split Comparisons */}
-      <div className="bg-gray-50">
+      <div className="bg-gray-50 relative">
+        {isLoading && <LoadingOverlay />}
         <SplitComparisonChart data={data.splits} />
       </div>
 
