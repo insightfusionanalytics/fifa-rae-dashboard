@@ -15,15 +15,6 @@ import Methodology from "@/components/Methodology";
 import SectionWrapper from "@/components/SectionWrapper";
 import type { FilterState } from "@/lib/types";
 
-const NAV_ITEMS = [
-  { label: "Overall", href: "#overall" },
-  { label: "By Position", href: "#position" },
-  { label: "By Rating", href: "#rating" },
-  { label: "By League", href: "#league" },
-  { label: "By Country", href: "#country" },
-  { label: "Players", href: "#players" },
-  { label: "Methodology", href: "#methodology" },
-];
 
 function LoadingOverlay() {
   return (
@@ -93,13 +84,6 @@ export default function ClientPage() {
   if (!data && !unfilteredData) {
     return (
       <main className="min-h-screen">
-        <nav className="sticky top-0 z-50 bg-navy/95 backdrop-blur-sm border-b border-white/10">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center h-14">
-              <span className="text-white font-semibold text-sm">FIFA RAE Dashboard</span>
-            </div>
-          </div>
-        </nav>
         <div className="bg-navy pt-8 pb-14 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="h-6 w-48 bg-white/10 rounded animate-pulse mx-auto mb-4" />
@@ -122,28 +106,6 @@ export default function ClientPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-navy/95 backdrop-blur-sm border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
-            <span className="text-white font-semibold text-sm sm:text-base">
-              FIFA RAE Dashboard
-            </span>
-            <div className="hidden md:flex items-center gap-1">
-              {NAV_ITEMS.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-gray-300 hover:text-white text-sm px-3 py-1.5 rounded transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Dashboard Header */}
       <DashboardHeader
         data={displayData}
