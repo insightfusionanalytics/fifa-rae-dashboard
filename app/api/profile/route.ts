@@ -179,11 +179,35 @@ function computeProfile(rows: PlayerRow[]) {
   const big5Rows = rows.filter((r) => BIG_5.has(r.league_name));
   const restRows = rows.filter((r) => !BIG_5.has(r.league_name));
 
+  // Rating tier breakdown for median stats
+  const sorted = [...rows].sort((a, b) => b.overall - a.overall);
+  const top20Cutoff = Math.floor(sorted.length * 0.2);
+  const bottom20Cutoff = Math.floor(sorted.length * 0.8);
+  const topTier = sorted.slice(0, top20Cutoff);
+  const middleTier = sorted.slice(top20Cutoff, bottom20Cutoff);
+  const bottomTier = sorted.slice(bottom20Cutoff);
+
+  function ratingTierStats(subset: PlayerRow[]) {
+    if (!subset.length) return null;
+    const m = medianVal(subset.map((r) => r.birth_month));
+    return {
+      median_birth_month: m,
+      median_birth_month_name: MONTH_NAMES[Math.round(m)] || "",
+      median_height: medianVal(subset.map((r) => r.height_cm)),
+      count: subset.length,
+    };
+  }
+
   const medianStats = {
     overall: {
       median_birth_month: medianVal(allMonths),
       median_birth_month_name: MONTH_NAMES[Math.round(medianVal(allMonths))] || "",
       median_height: medianVal(allHeights),
+    },
+    byRating: {
+      "Top 20%": ratingTierStats(topTier),
+      "Middle": ratingTierStats(middleTier),
+      "Bottom 20%": ratingTierStats(bottomTier),
     },
     big5: big5Rows.length ? {
       median_birth_month: medianVal(big5Rows.map((r) => r.birth_month)),
