@@ -63,7 +63,7 @@ export default function Methodology({ overview, tiers }: MethodologyProps) {
             </li>
             <li>
               <strong>Football year adjustment:</strong> Q1 is defined relative to
-              each country&apos;s football year start (Jan, Apr, Aug, or Sep)
+              each country&apos;s football year start (Jan, Apr, or Sep)
             </li>
           </ul>
         </div>
