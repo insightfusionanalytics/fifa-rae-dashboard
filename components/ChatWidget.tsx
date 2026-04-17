@@ -10,13 +10,13 @@ interface Message {
 const WELCOME: Message = {
   role: "assistant",
   content:
-    "Hiya — I'm Captain Q1. I've memorised every stat from the 56,880 player dataset. Ask me anything: \"Why are Brazilians so Q1?\", \"How tall are elite wingers?\", \"Who's the most lefty position?\" — or just poke around and see what I know.",
+    "Hi, I'm Captain Q1. I know the 56,880 player dataset cold. Ask me anything about RAE, height, footedness, country splits, or the findings in your report.",
 };
 
 const SUGGESTIONS = [
-  "What's the strongest country-level RAE?",
-  "Why are footballers so left-footed?",
-  "How tall are Big 5 league players?",
+  "Strongest country-level RAE?",
+  "Why so many left-footed players?",
+  "Big 5 vs rest, height difference?",
   "Which position is shortest?",
 ];
 
