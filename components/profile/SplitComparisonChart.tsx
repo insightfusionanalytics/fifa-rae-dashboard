@@ -18,14 +18,14 @@ interface SplitGroup {
 
 interface SplitsData {
   byRating: {
-    top: SplitGroup;
-    bottom: SplitGroup;
+    top: SplitGroup | null;
+    bottom: SplitGroup | null;
     top_threshold: number;
     bottom_threshold: number;
   };
   byLeague: {
-    big5: SplitGroup;
-    rest: SplitGroup;
+    big5: SplitGroup | null;
+    rest: SplitGroup | null;
   };
 }
 
@@ -66,10 +66,21 @@ function SplitPanel({
   subtitle: string;
   leftLabel: string;
   rightLabel: string;
-  leftGroup: SplitGroup;
-  rightGroup: SplitGroup;
+  leftGroup: SplitGroup | null;
+  rightGroup: SplitGroup | null;
   leftAccent: string;
 }) {
+  if (!leftGroup || !rightGroup) {
+    return (
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        <h3 className="text-sm font-semibold text-gray-700 mb-1">{title}</h3>
+        <p className="text-xs text-gray-400 mb-5">{subtitle}</p>
+        <div className="bg-gray-50 rounded-lg p-6 text-center text-sm text-gray-500">
+          Not enough players in the current filter selection to show this comparison.
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
       <h3 className="text-sm font-semibold text-gray-700 mb-1">{title}</h3>
@@ -214,15 +225,21 @@ export default function SplitComparisonChart({ data }: SplitComparisonChartProps
 
       {/* Key takeaway */}
       <div className="mt-4 flex flex-wrap gap-3 justify-center text-xs text-gray-500">
-        <span className="bg-gray-100 px-3 py-1 rounded-full">
-          Top-rated left-foot: {data.byRating.top.left_foot_pct}% vs bottom: {data.byRating.bottom.left_foot_pct}%
-        </span>
-        <span className="bg-gray-100 px-3 py-1 rounded-full">
-          Height gap (rating): {(data.byRating.top.avg_height - data.byRating.bottom.avg_height).toFixed(1)} cm
-        </span>
-        <span className="bg-gray-100 px-3 py-1 rounded-full">
-          Height gap (league): {(data.byLeague.big5.avg_height - data.byLeague.rest.avg_height).toFixed(1)} cm
-        </span>
+        {data.byRating.top && data.byRating.bottom && (
+          <>
+            <span className="bg-gray-100 px-3 py-1 rounded-full">
+              Top-rated left-foot: {data.byRating.top.left_foot_pct}% vs bottom: {data.byRating.bottom.left_foot_pct}%
+            </span>
+            <span className="bg-gray-100 px-3 py-1 rounded-full">
+              Height gap (rating): {(data.byRating.top.avg_height - data.byRating.bottom.avg_height).toFixed(1)} cm
+            </span>
+          </>
+        )}
+        {data.byLeague.big5 && data.byLeague.rest && (
+          <span className="bg-gray-100 px-3 py-1 rounded-full">
+            Height gap (league): {(data.byLeague.big5.avg_height - data.byLeague.rest.avg_height).toFixed(1)} cm
+          </span>
+        )}
       </div>
     </SectionWrapper>
   );

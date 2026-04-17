@@ -16,18 +16,18 @@ interface MedianStatsData {
     median_height: number;
   };
   byRating: {
-    [tier: string]: RatingTier;
+    [tier: string]: RatingTier | null;
   };
   big5: {
     median_birth_month: number;
     median_height: number;
     count: number;
-  };
+  } | null;
   rest: {
     median_birth_month: number;
     median_height: number;
     count: number;
-  };
+  } | null;
 }
 
 interface MedianStatsCardProps {
@@ -125,60 +125,71 @@ export default function MedianStatsCard({ data }: MedianStatsCardProps) {
           </p>
 
           <div className="space-y-4">
-            {/* Big 5 */}
-            <div className="bg-navy/5 rounded-lg p-5">
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <div className="text-sm font-semibold text-navy">Big 5 Leagues</div>
+            {data.big5 ? (
+              <div className="bg-navy/5 rounded-lg p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <div className="text-sm font-semibold text-navy">Big 5 Leagues</div>
+                    <div className="text-xs text-gray-400">
+                      Premier League, La Liga, Bundesliga, Serie A, Ligue 1
+                    </div>
+                  </div>
                   <div className="text-xs text-gray-400">
-                    Premier League, La Liga, Bundesliga, Serie A, Ligue 1
+                    {data.big5.count.toLocaleString()} players
                   </div>
                 </div>
-                <div className="text-xs text-gray-400">
-                  {data.big5.count.toLocaleString()} players
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white rounded-lg p-3 text-center">
-                  <div className="text-2xl font-bold text-navy">{data.big5.median_height}</div>
-                  <div className="text-[10px] uppercase tracking-wide text-gray-400">cm median height</div>
-                </div>
-                <div className="bg-white rounded-lg p-3 text-center">
-                  <div className="text-2xl font-bold text-navy">{MONTH_NAMES[data.big5.median_birth_month]}</div>
-                  <div className="text-[10px] uppercase tracking-wide text-gray-400">median birth month</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Rest */}
-            <div className="bg-gray-50 rounded-lg p-5">
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <div className="text-sm font-semibold text-gray-700">All Other Leagues</div>
-                  <div className="text-xs text-gray-400">
-                    39 other leagues
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-bold text-navy">{data.big5.median_height}</div>
+                    <div className="text-[10px] uppercase tracking-wide text-gray-400">cm median height</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-bold text-navy">{MONTH_NAMES[data.big5.median_birth_month]}</div>
+                    <div className="text-[10px] uppercase tracking-wide text-gray-400">median birth month</div>
                   </div>
                 </div>
-                <div className="text-xs text-gray-400">
-                  {data.rest.count.toLocaleString()} players
-                </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white rounded-lg p-3 text-center">
-                  <div className="text-2xl font-bold text-gray-700">{data.rest.median_height}</div>
-                  <div className="text-[10px] uppercase tracking-wide text-gray-400">cm median height</div>
-                </div>
-                <div className="bg-white rounded-lg p-3 text-center">
-                  <div className="text-2xl font-bold text-gray-700">{MONTH_NAMES[data.rest.median_birth_month]}</div>
-                  <div className="text-[10px] uppercase tracking-wide text-gray-400">median birth month</div>
-                </div>
+            ) : (
+              <div className="bg-gray-50 rounded-lg p-5 text-center text-sm text-gray-500">
+                No Big 5 league players in the current filter selection.
               </div>
-            </div>
+            )}
 
-            {/* Delta callout */}
-            <div className="bg-amber-50 border border-amber-100 rounded-lg p-3 text-center text-sm text-amber-800">
-              Big 5 players are <strong>{(data.big5.median_height - data.rest.median_height).toFixed(0)} cm taller</strong> at the median than players in other leagues
-            </div>
+            {data.rest ? (
+              <div className="bg-gray-50 rounded-lg p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <div className="text-sm font-semibold text-gray-700">All Other Leagues</div>
+                    <div className="text-xs text-gray-400">
+                      39 other leagues
+                    </div>
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    {data.rest.count.toLocaleString()} players
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-bold text-gray-700">{data.rest.median_height}</div>
+                    <div className="text-[10px] uppercase tracking-wide text-gray-400">cm median height</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-bold text-gray-700">{MONTH_NAMES[data.rest.median_birth_month]}</div>
+                    <div className="text-[10px] uppercase tracking-wide text-gray-400">median birth month</div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-gray-50 rounded-lg p-5 text-center text-sm text-gray-500">
+                No non-Big-5 players in the current filter selection.
+              </div>
+            )}
+
+            {data.big5 && data.rest && (
+              <div className="bg-amber-50 border border-amber-100 rounded-lg p-3 text-center text-sm text-amber-800">
+                Big 5 players are <strong>{(data.big5.median_height - data.rest.median_height).toFixed(0)} cm taller</strong> at the median than players in other leagues
+              </div>
+            )}
           </div>
         </div>
       </div>
