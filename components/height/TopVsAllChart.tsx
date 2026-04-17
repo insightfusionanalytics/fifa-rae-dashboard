@@ -16,9 +16,9 @@ interface TopVsAllData {
   position: string;
   all_avg: number;
   all_count: number;
-  top_avg: number;
+  top_avg: number | null;
   top_count: number;
-  diff: number;
+  diff: number | null;
 }
 
 interface TopVsAllChartProps {
@@ -26,14 +26,30 @@ interface TopVsAllChartProps {
 }
 
 export default function TopVsAllChart({ data }: TopVsAllChartProps) {
-  const chartData = data.map((d) => ({
-    name: d.position,
-    allPlayers: d.all_avg,
-    topRated: d.top_avg,
-    diff: d.diff,
-    allCount: d.all_count,
-    topCount: d.top_count,
-  }));
+  const chartData = data
+    .filter((d) => d.top_avg !== null && d.diff !== null)
+    .map((d) => ({
+      name: d.position,
+      allPlayers: d.all_avg,
+      topRated: d.top_avg as number,
+      diff: d.diff as number,
+      allCount: d.all_count,
+      topCount: d.top_count,
+    }));
+
+  if (chartData.length === 0) {
+    return (
+      <SectionWrapper
+        id="top-vs-all"
+        title="Top-Rated (80+) vs All Players"
+        subtitle="No 80+ rated players match the current filter selection."
+      >
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center text-gray-500 text-sm">
+          Not enough top-rated players in the current filter to compute this comparison.
+        </div>
+      </SectionWrapper>
+    );
+  }
 
   return (
     <SectionWrapper

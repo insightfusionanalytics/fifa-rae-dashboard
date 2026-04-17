@@ -17,9 +17,9 @@ interface CountryPositionData {
   country: string;
   total_players: number;
   country_avg_height: number;
-  winger: { avg_height: number; count: number };
-  central_midfielder: { avg_height: number; count: number };
-  centre_back: { avg_height: number; count: number };
+  winger: { avg_height: number | null; count: number };
+  central_midfielder: { avg_height: number | null; count: number };
+  centre_back: { avg_height: number | null; count: number };
 }
 
 interface CountryComparisonChartProps {
@@ -34,14 +34,28 @@ export default function CountryComparisonChart({
   const chartData = data.map((d) => ({
     name: d.country,
     countryAvg: d.country_avg_height,
-    winger: d.winger.avg_height,
-    centreMid: d.central_midfielder.avg_height,
-    centreBack: d.centre_back.avg_height,
+    winger: d.winger.avg_height ?? 0,
+    centreMid: d.central_midfielder.avg_height ?? 0,
+    centreBack: d.centre_back.avg_height ?? 0,
     wingerCount: d.winger.count,
     cmCount: d.central_midfielder.count,
     cbCount: d.centre_back.count,
     totalPlayers: d.total_players,
   }));
+
+  if (chartData.length === 0) {
+    return (
+      <SectionWrapper
+        id="country-comparison"
+        title="Height by Country & Position"
+        subtitle="No country data matches the current filter selection."
+      >
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center text-gray-500 text-sm">
+          Not enough country data available for the current filters.
+        </div>
+      </SectionWrapper>
+    );
+  }
 
   return (
     <SectionWrapper
@@ -67,7 +81,7 @@ export default function CountryComparisonChart({
                   centreBack: "Centre Back",
                   countryAvg: "Country Average",
                 };
-                return [`${value.toFixed(1)} cm`, labels[name] ?? name];
+                return [value ? `${value.toFixed(1)} cm` : "n/a", labels[name] ?? name];
               }}
             />
             <Legend

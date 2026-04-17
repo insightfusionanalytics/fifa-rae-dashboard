@@ -3,8 +3,8 @@
 import SectionWrapper from "../SectionWrapper";
 
 interface LeagueTierData {
-  big_5: { avg_height: number; count: number };
-  rest: { avg_height: number; count: number };
+  big_5: { avg_height: number; count: number } | null;
+  rest: { avg_height: number; count: number } | null;
 }
 
 interface LeagueTierHeightProps {
@@ -16,6 +16,24 @@ export default function LeagueTierHeight({
   data,
   big5Leagues,
 }: LeagueTierHeightProps) {
+  if (!data.big_5 || !data.rest) {
+    return (
+      <SectionWrapper
+        id="league-tier"
+        title="Big 5 Leagues vs Rest of the World"
+        subtitle="Comparison unavailable for the current filter selection."
+      >
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center text-gray-500 text-sm">
+          {!data.big_5 && !data.rest
+            ? "No players match the current filters."
+            : !data.big_5
+              ? "No Big 5 league players in the current filter selection."
+              : "No non-Big-5 players in the current filter selection."}
+        </div>
+      </SectionWrapper>
+    );
+  }
+
   const diff = (data.big_5.avg_height - data.rest.avg_height).toFixed(1);
 
   return (
