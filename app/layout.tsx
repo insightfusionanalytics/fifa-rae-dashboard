@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
+import ChatWidget from "@/components/ChatWidget";
 import Providers from "./providers";
 import "./globals.css";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Providers>
           <Nav />
           {children}
+          <ChatWidget />
         </Providers>
       </body>
     </html>
