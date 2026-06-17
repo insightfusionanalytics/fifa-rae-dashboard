@@ -1,0 +1,275 @@
+{
+  "totalPlayers": 56880,
+  "bySubPosition": [
+    {
+      "position": "Goalkeeper",
+      "avg_height": 187.5,
+      "median_height": 188.0,
+      "std_dev": 5.0,
+      "count": 6463,
+      "min": 165.0,
+      "max": 210.0
+    },
+    {
+      "position": "Centre Back",
+      "avg_height": 185.7,
+      "median_height": 186.0,
+      "std_dev": 4.8,
+      "count": 9382,
+      "min": 162.0,
+      "max": 203.0
+    },
+    {
+      "position": "Fullback",
+      "avg_height": 178.2,
+      "median_height": 178.0,
+      "std_dev": 5.1,
+      "count": 8410,
+      "min": 155.0,
+      "max": 203.0
+    },
+    {
+      "position": "Central Midfielder",
+      "avg_height": 178.3,
+      "median_height": 178.0,
+      "std_dev": 5.8,
+      "count": 14705,
+      "min": 155.0,
+      "max": 202.0
+    },
+    {
+      "position": "Winger",
+      "avg_height": 176.4,
+      "median_height": 176.0,
+      "std_dev": 5.5,
+      "count": 8723,
+      "min": 149.0,
+      "max": 197.0
+    },
+    {
+      "position": "Forward/Striker",
+      "avg_height": 181.6,
+      "median_height": 182.0,
+      "std_dev": 6.3,
+      "count": 9197,
+      "min": 155.0,
+      "max": 206.0
+    }
+  ],
+  "topVsAll": [
+    {
+      "position": "Goalkeeper",
+      "all_avg": 187.5,
+      "all_count": 6463,
+      "top_avg": 189.5,
+      "top_count": 68,
+      "diff": 2.0
+    },
+    {
+      "position": "Centre Back",
+      "all_avg": 185.7,
+      "all_count": 9382,
+      "top_avg": 188.1,
+      "top_count": 88,
+      "diff": 2.3
+    },
+    {
+      "position": "Fullback",
+      "all_avg": 178.2,
+      "all_count": 8410,
+      "top_avg": 179.1,
+      "top_count": 46,
+      "diff": 1.0
+    },
+    {
+      "position": "Central Midfielder",
+      "all_avg": 178.3,
+      "all_count": 14705,
+      "top_avg": 179.7,
+      "top_count": 154,
+      "diff": 1.4
+    },
+    {
+      "position": "Winger",
+      "all_avg": 176.4,
+      "all_count": 8723,
+      "top_avg": 176.0,
+      "top_count": 84,
+      "diff": -0.4
+    },
+    {
+      "position": "Forward/Striker",
+      "all_avg": 181.6,
+      "all_count": 9197,
+      "top_avg": 184.0,
+      "top_count": 80,
+      "diff": 2.4
+    }
+  ],
+  "topCountries": [
+    {
+      "country": "England",
+      "total_players": 4829,
+      "country_avg_height": 181.2,
+      "winger": {
+        "avg_height": 177.0,
+        "count": 639
+      },
+      "central_midfielder": {
+        "avg_height": 178.6,
+        "count": 1210
+      },
+      "centre_back": {
+        "avg_height": 186.2,
+        "count": 828
+      }
+    },
+    {
+      "country": "Argentina",
+      "total_players": 2986,
+      "country_avg_height": 178.6,
+      "winger": {
+        "avg_height": 174.3,
+        "count": 516
+      },
+      "central_midfielder": {
+        "avg_height": 176.0,
+        "count": 784
+      },
+      "centre_back": {
+        "avg_height": 184.1,
+        "count": 459
+      }
+    },
+    {
+      "country": "Spain",
+      "total_players": 2935,
+      "country_avg_height": 180.3,
+      "winger": {
+        "avg_height": 176.2,
+        "count": 451
+      },
+      "central_midfielder": {
+        "avg_height": 178.7,
+        "count": 768
+      },
+      "centre_back": {
+        "avg_height": 184.5,
+        "count": 464
+      }
+    },
+    {
+      "country": "Germany",
+      "total_players": 2711,
+      "country_avg_height": 183.4,
+      "winger": {
+        "avg_height": 178.9,
+        "count": 420
+      },
+      "central_midfielder": {
+        "avg_height": 180.7,
+        "count": 690
+      },
+      "centre_back": {
+        "avg_height": 188.3,
+        "count": 468
+      }
+    },
+    {
+      "country": "France",
+      "total_players": 2601,
+      "country_avg_height": 181.4,
+      "winger": {
+        "avg_height": 177.5,
+        "count": 362
+      },
+      "central_midfielder": {
+        "avg_height": 179.4,
+        "count": 699
+      },
+      "centre_back": {
+        "avg_height": 186.4,
+        "count": 451
+      }
+    }
+  ],
+  "byRatingDecile": [
+    {
+      "decile": 1,
+      "avg_height": 180.2,
+      "count": 7098
+    },
+    {
+      "decile": 2,
+      "avg_height": 180.6,
+      "count": 5969
+    },
+    {
+      "decile": 3,
+      "avg_height": 180.5,
+      "count": 5010
+    },
+    {
+      "decile": 4,
+      "avg_height": 180.7,
+      "count": 5886
+    },
+    {
+      "decile": 5,
+      "avg_height": 180.7,
+      "count": 6234
+    },
+    {
+      "decile": 6,
+      "avg_height": 180.9,
+      "count": 6557
+    },
+    {
+      "decile": 7,
+      "avg_height": 180.9,
+      "count": 5766
+    },
+    {
+      "decile": 8,
+      "avg_height": 181.0,
+      "count": 4492
+    },
+    {
+      "decile": 9,
+      "avg_height": 181.0,
+      "count": 4625
+    },
+    {
+      "decile": 10,
+      "avg_height": 181.4,
+      "count": 5243
+    }
+  ],
+  "byLeagueTier": {
+    "big_5": {
+      "avg_height": 181.9,
+      "count": 8432
+    },
+    "rest": {
+      "avg_height": 180.6,
+      "count": 48448
+    }
+  },
+  "overallAvgHeight": 180.8,
+  "overallMedianHeight": 180.0,
+  "subPositionOrder": [
+    "Goalkeeper",
+    "Centre Back",
+    "Fullback",
+    "Central Midfielder",
+    "Winger",
+    "Forward/Striker"
+  ],
+  "big5Leagues": [
+    "Bundesliga",
+    "La Liga",
+    "Ligue 1",
+    "Premier League",
+    "Serie A"
+  ]
+}

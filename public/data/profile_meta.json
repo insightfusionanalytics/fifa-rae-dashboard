@@ -1,0 +1,600 @@
+{
+  "totalPlayers": 56880,
+  "modalPlayer": {
+    "country": {
+      "value": "England",
+      "count": 4829,
+      "pct": 8.5
+    },
+    "foot": {
+      "value": "Right",
+      "count": 44317,
+      "pct": 77.9
+    },
+    "birth_month": {
+      "value": "January",
+      "month_num": 1,
+      "count": 6601,
+      "pct": 11.6
+    },
+    "position": {
+      "value": "Central Midfielder",
+      "count": 14705,
+      "pct": 25.9
+    },
+    "primary_position": {
+      "value": "CB",
+      "count": 9382,
+      "pct": 16.5
+    },
+    "league": {
+      "value": "Liga Profesional",
+      "count": 2528,
+      "pct": 4.4
+    },
+    "avg_height": 180.8,
+    "avg_weight": 74.5,
+    "avg_overall": 62.0,
+    "total_players": 56880
+  },
+  "footAnalysis": {
+    "overall": {
+      "left_foot_pct": 22.1,
+      "right_foot_pct": 77.9,
+      "left_foot_count": 12563,
+      "right_foot_count": 44317
+    },
+    "population_baseline": {
+      "left_hand_pct": 10.6,
+      "right_hand_pct": 89.4
+    },
+    "ratio": 2.08,
+    "byPosition": {
+      "Central Midfielder": {
+        "left_pct": 16.7,
+        "right_pct": 83.3,
+        "left_count": 2457,
+        "right_count": 12248
+      },
+      "Centre Back": {
+        "left_pct": 19.3,
+        "right_pct": 80.7,
+        "left_count": 1811,
+        "right_count": 7571
+      },
+      "Forward/Striker": {
+        "left_pct": 12.9,
+        "right_pct": 87.1,
+        "left_count": 1185,
+        "right_count": 8012
+      },
+      "Fullback": {
+        "left_pct": 45.9,
+        "right_pct": 54.1,
+        "left_count": 3859,
+        "right_count": 4551
+      },
+      "Goalkeeper": {
+        "left_pct": 8.8,
+        "right_pct": 91.2,
+        "left_count": 569,
+        "right_count": 5894
+      },
+      "Winger": {
+        "left_pct": 30.7,
+        "right_pct": 69.3,
+        "left_count": 2682,
+        "right_count": 6041
+      }
+    },
+    "byCountry": {
+      "England": {
+        "left_pct": 21.2,
+        "total": 4829
+      },
+      "Argentina": {
+        "left_pct": 23.5,
+        "total": 2986
+      },
+      "Spain": {
+        "left_pct": 24.8,
+        "total": 2935
+      },
+      "Germany": {
+        "left_pct": 21.7,
+        "total": 2711
+      },
+      "France": {
+        "left_pct": 23.8,
+        "total": 2601
+      },
+      "Brazil": {
+        "left_pct": 27.2,
+        "total": 2471
+      },
+      "Italy": {
+        "left_pct": 24.5,
+        "total": 2090
+      },
+      "Colombia": {
+        "left_pct": 19.3,
+        "total": 1754
+      },
+      "Netherlands": {
+        "left_pct": 24.1,
+        "total": 1313
+      },
+      "Korea Republic": {
+        "left_pct": 16.8,
+        "total": 1306
+      },
+      "Republic of Ireland": {
+        "left_pct": 21.9,
+        "total": 1284
+      },
+      "Poland": {
+        "left_pct": 15.6,
+        "total": 1244
+      },
+      "Chile": {
+        "left_pct": 22.2,
+        "total": 1208
+      },
+      "Japan": {
+        "left_pct": 17.6,
+        "total": 1202
+      },
+      "Sweden": {
+        "left_pct": 20.1,
+        "total": 1146
+      },
+      "Turkey": {
+        "left_pct": 26.7,
+        "total": 1144
+      },
+      "Mexico": {
+        "left_pct": 23.7,
+        "total": 1123
+      },
+      "Saudi Arabia": {
+        "left_pct": 23.2,
+        "total": 1106
+      },
+      "United States": {
+        "left_pct": 18.2,
+        "total": 1070
+      },
+      "Norway": {
+        "left_pct": 18.1,
+        "total": 1014
+      }
+    }
+  },
+  "countryRepresentation": [
+    {
+      "country": "Brazil",
+      "total_players": 2471,
+      "top_players": 73,
+      "top_pct": 3.0
+    },
+    {
+      "country": "Spain",
+      "total_players": 2935,
+      "top_players": 84,
+      "top_pct": 2.9
+    },
+    {
+      "country": "Portugal",
+      "total_players": 1004,
+      "top_players": 25,
+      "top_pct": 2.5
+    },
+    {
+      "country": "Belgium",
+      "total_players": 873,
+      "top_players": 17,
+      "top_pct": 1.9
+    },
+    {
+      "country": "Uruguay",
+      "total_players": 810,
+      "top_players": 14,
+      "top_pct": 1.7
+    },
+    {
+      "country": "France",
+      "total_players": 2601,
+      "top_players": 40,
+      "top_pct": 1.5
+    },
+    {
+      "country": "Italy",
+      "total_players": 2090,
+      "top_players": 31,
+      "top_pct": 1.5
+    },
+    {
+      "country": "Germany",
+      "total_players": 2711,
+      "top_players": 39,
+      "top_pct": 1.4
+    },
+    {
+      "country": "Netherlands",
+      "total_players": 1313,
+      "top_players": 18,
+      "top_pct": 1.4
+    },
+    {
+      "country": "Argentina",
+      "total_players": 2986,
+      "top_players": 21,
+      "top_pct": 0.7
+    },
+    {
+      "country": "Mexico",
+      "total_players": 1123,
+      "top_players": 7,
+      "top_pct": 0.6
+    },
+    {
+      "country": "Denmark",
+      "total_players": 884,
+      "top_players": 5,
+      "top_pct": 0.6
+    },
+    {
+      "country": "England",
+      "total_players": 4829,
+      "top_players": 24,
+      "top_pct": 0.5
+    },
+    {
+      "country": "Russia",
+      "total_players": 740,
+      "top_players": 4,
+      "top_pct": 0.5
+    },
+    {
+      "country": "Colombia",
+      "total_players": 1754,
+      "top_players": 7,
+      "top_pct": 0.4
+    },
+    {
+      "country": "Turkey",
+      "total_players": 1144,
+      "top_players": 5,
+      "top_pct": 0.4
+    },
+    {
+      "country": "Poland",
+      "total_players": 1244,
+      "top_players": 4,
+      "top_pct": 0.3
+    },
+    {
+      "country": "Chile",
+      "total_players": 1208,
+      "top_players": 4,
+      "top_pct": 0.3
+    },
+    {
+      "country": "Austria",
+      "total_players": 750,
+      "top_players": 2,
+      "top_pct": 0.3
+    },
+    {
+      "country": "Republic of Ireland",
+      "total_players": 1284,
+      "top_players": 2,
+      "top_pct": 0.2
+    },
+    {
+      "country": "Japan",
+      "total_players": 1202,
+      "top_players": 2,
+      "top_pct": 0.2
+    },
+    {
+      "country": "Sweden",
+      "total_players": 1146,
+      "top_players": 2,
+      "top_pct": 0.2
+    },
+    {
+      "country": "United States",
+      "total_players": 1070,
+      "top_players": 2,
+      "top_pct": 0.2
+    },
+    {
+      "country": "Korea Republic",
+      "total_players": 1306,
+      "top_players": 1,
+      "top_pct": 0.1
+    },
+    {
+      "country": "Norway",
+      "total_players": 1014,
+      "top_players": 1,
+      "top_pct": 0.1
+    },
+    {
+      "country": "Saudi Arabia",
+      "total_players": 1106,
+      "top_players": 0,
+      "top_pct": 0.0
+    },
+    {
+      "country": "China PR",
+      "total_players": 930,
+      "top_players": 0,
+      "top_pct": 0.0
+    },
+    {
+      "country": "Scotland",
+      "total_players": 849,
+      "top_players": 0,
+      "top_pct": 0.0
+    },
+    {
+      "country": "Romania",
+      "total_players": 687,
+      "top_players": 0,
+      "top_pct": 0.0
+    },
+    {
+      "country": "Australia",
+      "total_players": 680,
+      "top_players": 0,
+      "top_pct": 0.0
+    }
+  ],
+  "medianStats": {
+    "overall": {
+      "median_birth_month": 5,
+      "median_birth_month_name": "May",
+      "median_height": 180.0
+    },
+    "byRating": {
+      "Bottom 20%": {
+        "median_birth_month": 6,
+        "median_birth_month_name": "June",
+        "median_height": 180.0,
+        "count": 13067
+      },
+      "Middle": {
+        "median_birth_month": 5,
+        "median_birth_month_name": "May",
+        "median_height": 180.0,
+        "count": 31927
+      },
+      "Top 20%": {
+        "median_birth_month": 5,
+        "median_birth_month_name": "May",
+        "median_height": 181.0,
+        "count": 11886
+      }
+    },
+    "big5": {
+      "median_birth_month": 5,
+      "median_height": 182.0,
+      "count": 8432
+    },
+    "rest": {
+      "median_birth_month": 6,
+      "median_height": 180.0,
+      "count": 48448
+    }
+  },
+  "splits": {
+    "byRating": {
+      "top": {
+        "count": 520,
+        "avg_overall": 82.1,
+        "avg_height": 182.4,
+        "left_foot_pct": 25.0,
+        "top_country": "Spain",
+        "top_country_pct": 16.2,
+        "top_position": "Central Midfielder",
+        "top_3_countries": [
+          {
+            "country": "Spain",
+            "count": 84,
+            "pct": 16.2
+          },
+          {
+            "country": "Brazil",
+            "count": 73,
+            "pct": 14.0
+          },
+          {
+            "country": "France",
+            "count": 40,
+            "pct": 7.7
+          }
+        ],
+        "top_3_positions": [
+          {
+            "position": "Central Midfielder",
+            "count": 154,
+            "pct": 29.6
+          },
+          {
+            "position": "Centre Back",
+            "count": 88,
+            "pct": 16.9
+          },
+          {
+            "position": "Winger",
+            "count": 84,
+            "pct": 16.2
+          }
+        ],
+        "foot_distribution": {
+          "Right": 75.0,
+          "Left": 25.0
+        },
+        "median_birth_month": 5
+      },
+      "bottom": {
+        "count": 36754,
+        "avg_overall": 57.9,
+        "avg_height": 180.6,
+        "left_foot_pct": 20.6,
+        "top_country": "England",
+        "top_country_pct": 10.8,
+        "top_position": "Central Midfielder",
+        "top_3_countries": [
+          {
+            "country": "England",
+            "count": 3966,
+            "pct": 10.8
+          },
+          {
+            "country": "Germany",
+            "count": 1762,
+            "pct": 4.8
+          },
+          {
+            "country": "Argentina",
+            "count": 1724,
+            "pct": 4.7
+          }
+        ],
+        "top_3_positions": [
+          {
+            "position": "Central Midfielder",
+            "count": 9408,
+            "pct": 25.6
+          },
+          {
+            "position": "Forward/Striker",
+            "count": 6093,
+            "pct": 16.6
+          },
+          {
+            "position": "Centre Back",
+            "count": 5818,
+            "pct": 15.8
+          }
+        ],
+        "foot_distribution": {
+          "Right": 79.4,
+          "Left": 20.6
+        },
+        "median_birth_month": 5
+      },
+      "top_threshold": 80,
+      "bottom_threshold": 65
+    },
+    "byLeague": {
+      "big5": {
+        "count": 8432,
+        "avg_overall": 66.6,
+        "avg_height": 181.9,
+        "left_foot_pct": 23.7,
+        "top_country": "Spain",
+        "top_country_pct": 11.4,
+        "top_position": "Central Midfielder",
+        "top_3_countries": [
+          {
+            "country": "Spain",
+            "count": 962,
+            "pct": 11.4
+          },
+          {
+            "country": "France",
+            "count": 907,
+            "pct": 10.8
+          },
+          {
+            "country": "Russia",
+            "count": 676,
+            "pct": 8.0
+          }
+        ],
+        "top_3_positions": [
+          {
+            "position": "Central Midfielder",
+            "count": 2174,
+            "pct": 25.8
+          },
+          {
+            "position": "Centre Back",
+            "count": 1452,
+            "pct": 17.2
+          },
+          {
+            "position": "Fullback",
+            "count": 1271,
+            "pct": 15.1
+          }
+        ],
+        "foot_distribution": {
+          "Right": 76.3,
+          "Left": 23.7
+        },
+        "median_birth_month": 5
+      },
+      "rest": {
+        "count": 48448,
+        "avg_overall": 61.2,
+        "avg_height": 180.6,
+        "left_foot_pct": 21.8,
+        "top_country": "England",
+        "top_country_pct": 8.6,
+        "top_position": "Central Midfielder",
+        "top_3_countries": [
+          {
+            "country": "England",
+            "count": 4186,
+            "pct": 8.6
+          },
+          {
+            "country": "Argentina",
+            "count": 2862,
+            "pct": 5.9
+          },
+          {
+            "country": "Germany",
+            "count": 2134,
+            "pct": 4.4
+          }
+        ],
+        "top_3_positions": [
+          {
+            "position": "Central Midfielder",
+            "count": 12531,
+            "pct": 25.9
+          },
+          {
+            "position": "Forward/Striker",
+            "count": 7932,
+            "pct": 16.4
+          },
+          {
+            "position": "Centre Back",
+            "count": 7930,
+            "pct": 16.4
+          }
+        ],
+        "foot_distribution": {
+          "Right": 78.2,
+          "Left": 21.8
+        },
+        "median_birth_month": 6
+      }
+    }
+  },
+  "big5Leagues": [
+    "Bundesliga",
+    "La Liga",
+    "Ligue 1",
+    "Premier League",
+    "Serie A"
+  ],
+  "leftHandPopulationPct": 10.6
+}
